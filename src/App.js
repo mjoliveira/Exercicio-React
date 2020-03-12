@@ -5,12 +5,12 @@ import { Link } from '@reach/router';
 function App() {
   return (
     <>
-      <Link to="/">Home</Link>
+      <Link to="/dragon">Lista de dragões</Link>
       <br/>
-      <Link to="/pagina-2/3">Página 2</Link> 
+      <Link to="/login">Login</Link>
       <br/>
       <Router />
-    </>   
+    </>
   )
 }
 
