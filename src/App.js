@@ -5,7 +5,7 @@ import { Link } from '@reach/router';
 function App() {
   return (
     <>
-      <Link to="/dragon">Lista de dragões</Link>
+      <Link to="/">Lista de dragões</Link>
       <br/>
       <Link to="/login">Login</Link>
       <br/>

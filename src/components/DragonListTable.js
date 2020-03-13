@@ -1,16 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import DragonService from '../../../api/DragonService';
+import React from "react";
 
-function List() {
-  const [list, setList] = useState([])
-
-  useEffect(() => {
-    (async () => {
-      const response = await DragonService.getDragonList();
-      setList(response);
-    })();
-  }, [setList])
-
+function DragonListTable({ list }) {
+  console.log("Dados:" + list);
   return (
     <>
       <h1> Lista de dragões</h1>
@@ -32,9 +23,8 @@ function List() {
           })}
         </tbody>
       </table>
-
     </>
   );
 }
 
-export default List;
+export default DragonListTable;

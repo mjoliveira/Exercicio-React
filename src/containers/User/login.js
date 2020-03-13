@@ -6,31 +6,30 @@ import "../../resources/assets/css/layout.css";
 function Login() {
   const handleLogin = useCallback(
     evt => {
-      navigate("/dragon");
+      navigate("/");
     },
     [],
   )
   return (
     <form>
-      <table class="table-login">
+      <table className="table-login">
         <thead>
           <tr>
-            <th colspan="2"><h2 class="subtitle" >Login!</h2></th>
+            <th colSpan="2"><h2 className="subtitle" >Login!</h2></th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
-            <th><label class="lable-login" htmlFor="user">Usuário</label></th>
+            <th><label className="lable-login" htmlFor="user">Usuário</label></th>
             <th><input id="user" type="text" autocomplite="off" /></th>
           </tr>
           <tr>
-            <th><label class="lable-login" htmlFor="password">Senha</label></th>
+            <th><label className="lable-login" htmlFor="password">Senha</label></th>
             <th><input id="password" type="password" autocomplite="off" /></th>
           </tr>
           <tr>
-            <th colspan="2">
-              <button class="btn btn-login" type="button" onClick={handleLogin}>Entrar</button>
+            <th colSpan="2">
+              <button className="btn btn-login" type="button" onClick={handleLogin}>Entrar</button>
             </th>
           </tr>
         </tbody>
