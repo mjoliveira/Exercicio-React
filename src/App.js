@@ -7,6 +7,8 @@ function App() {
     <>
       <Link to="/">Lista de dragões</Link>
       <br/>
+      <Link to="/create">Criar dragão</Link>
+      <br/>
       <Link to="/login">Login</Link>
       <br/>
       <Router />

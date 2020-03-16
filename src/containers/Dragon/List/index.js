@@ -1,16 +1,22 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import DragonService from '../../../api/DragonService';
+import { navigate } from '@reach/router';
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
   const [list, setList] = useState([]);
 
+  const handleCreate = useCallback(
+    evt => {
+      navigate("/create");
+    },
+    [],
+  )
+
   const handleDelete = useCallback(async (evt) => {
-    await DragonService.delete(evt.target.id)
-      .then();
+    await DragonService.delete(evt.target.id);
     //window.location.reload();
   }, []);
-
 
   useEffect(() => {
     (async () => {
@@ -21,6 +27,7 @@ function List() {
 
   return (
     <>
+      <button onClick={handleCreate}>Criar Dragão</button>
       <h1> Lista de dragões</h1>
       <table border="1">
         <thead>

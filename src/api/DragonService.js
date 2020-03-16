@@ -7,11 +7,11 @@ export default class DragonService {
     return data;
   }
 
-  static async create() {
+  static async create({name, type, histories}) {
     Axios.post('http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon', {
-      name: "Teste",
-      type: "Ar",
-      histories: "Não temos dados sobre sua história",
+      name: name,
+      type: type,
+      histories: histories,
     }).then(res => {
       console.log(res);
       console.log(res.data);
