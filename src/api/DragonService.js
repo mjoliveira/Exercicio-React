@@ -7,9 +7,9 @@ export default class DragonService {
     return data;
   }
 
-  static async creat() {
+  static async create() {
     Axios.post('http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon', {
-      name: "Tom",
+      name: "Teste",
       type: "Ar",
       histories: "Não temos dados sobre sua história",
     }).then(res => {
@@ -18,8 +18,8 @@ export default class DragonService {
     });
   }
 
-  static async delete() {
-    Axios.delete('http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/1')
+  static async delete(id) {
+    Axios.delete('http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon/'+ id)
       .then(res => {
         console.log(res);
         console.log(res.data);

@@ -1,7 +1,7 @@
 import React from "react";
+import DragonService from "../api/DragonService";
 
 function DragonListTable({ list }) {
-  console.log("Dados:" + list);
   return (
     <>
       <h1> Lista de dragões</h1>
@@ -11,6 +11,7 @@ function DragonListTable({ list }) {
             <th>Nome</th>
             <th>Tipo</th>
             <th>História</th>
+            <th>Deletar</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@ function DragonListTable({ list }) {
               <th>{dragon.name}</th>
               <th>{dragon.type}</th>
               <th>{dragon.histories}</th>
+              <th><button >Deletar</button></th>
             </tr>)
           })}
         </tbody>

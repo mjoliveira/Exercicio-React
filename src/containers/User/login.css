@@ -1,11 +1,11 @@
 .table-login{
   border: none;
-  width: 30%;
   margin: 0px 10% 0px 0px;
   padding: 10px;
-  float: right;
   background-color: rgb(124, 65, 41);
   color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subtitle{
