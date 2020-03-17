@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import DragonService from '../../../api/DragonService';
 import { navigate } from '@reach/router';
+import "./list.css";
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
@@ -28,8 +29,8 @@ function List() {
   return (
     <>
       <button onClick={handleCreate}>Criar Dragão</button>
-      <h1> Lista de dragões</h1>
-      <table border="1">
+      <h1 className="center"> Lista de dragões</h1>
+      <table border="1" className="table-dragons">
         <thead>
           <tr>
             <th>Nome</th>
@@ -41,10 +42,10 @@ function List() {
         <tbody>
           {list.map((dragon) => {
             return (<tr key={dragon.id}>
-              <th>{dragon.name}</th>
-              <th>{dragon.type}</th>
-              <th>{dragon.histories}</th>
-              <th><button id={dragon.id} onClick={handleDelete}>Deletar</button></th>
+              <td>{dragon.name}</td>
+              <td className="center">{dragon.type}</td>
+              <td>{dragon.histories}</td>
+              <td><button id={dragon.id} onClick={handleDelete}>Deletar</button></td>
             </tr>)
           })}
         </tbody>
