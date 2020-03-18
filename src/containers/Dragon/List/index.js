@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import DragonService from '../../../api/DragonService';
 import { navigate } from '@reach/router';
 import "./list.css";
+import IconSVG from "../../../_assets/icons/delete.svg";
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
@@ -45,7 +46,9 @@ function List() {
               <td>{dragon.name}</td>
               <td className="center">{dragon.type}</td>
               <td>{dragon.histories}</td>
-              <td><button id={dragon.id} onClick={handleDelete}>Deletar</button></td>
+              <td>
+                <img id={dragon.id} src={IconSVG} alt="Deletar" onClick={handleDelete} />
+              </td>
             </tr>)
           })}
         </tbody>
