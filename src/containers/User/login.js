@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { navigate } from '@reach/router';
 import "./login.css";
-import "../../resources/assets/css/layout.css";
+import "../../_assets/css/layout.css";
 
 function Login() {
   const handleLogin = useCallback(

@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from './routes';
+import Router from './_config/routes';
 import { Link } from '@reach/router';
 
 function App() {
