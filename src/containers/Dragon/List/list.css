@@ -1,3 +1,10 @@
+img:hover{
+  background-color: rgba(172, 105, 79, 0.383);
+}
+img:active {
+  background-color: rgba(172, 105, 79, 0.698);
+}
+
 .table-dragons {
   border-collapse: collapse;
   width: 80%;
