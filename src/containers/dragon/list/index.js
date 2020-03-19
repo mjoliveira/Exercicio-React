@@ -2,7 +2,8 @@ import React, { useEffect, useState, useCallback } from 'react';
 import DragonService from '../../../api/DragonService';
 import { navigate } from '@reach/router';
 import "./list.css";
-import IconSVG from "../../../_assets/icons/delete.svg";
+import IconDelete from "../../../_assets/icons/delete.svg";
+import IconUpdate from "../../../_assets/icons/update.svg";
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
@@ -11,6 +12,13 @@ function List() {
   const handleCreate = useCallback(
     evt => {
       navigate("/create");
+    },
+    [],
+  )
+
+  const handleUpdate= useCallback(
+    evt => {
+      navigate("/update/" + evt.target.id);
     },
     [],
   )
@@ -37,7 +45,7 @@ function List() {
             <th>Nome</th>
             <th>Tipo</th>
             <th>História</th>
-            <th>Deletar</th>
+            <th>Opções</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +55,8 @@ function List() {
               <td className="center">{dragon.type}</td>
               <td>{dragon.histories}</td>
               <td>
-                <img id={dragon.id} src={IconSVG} alt="Deletar" onClick={handleDelete} />
+                <img id={dragon.id} src={IconDelete} alt="Deletar" onClick={handleDelete} />
+                <img id={dragon.id} src={IconUpdate} alt="Editar" onClick={handleUpdate} />
               </td>
             </tr>)
           })}
