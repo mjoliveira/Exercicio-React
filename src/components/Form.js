@@ -5,20 +5,21 @@ import * as yup from 'yup';
 import { navigate } from '@reach/router';
 
 
-function Form(creating, dragon) {
-  console.log(creating);
+function Form(data) {
+  console.log("Form: " + JSON.stringify(data));
+  console.log("Nome:   " + data.name);
   const initialValues = (() => {
-    if (creating) {
+    if (data === {}) {
       return {
-        name: dragon.name,
-        type: dragon.type,
-        histories: dragon.histories
+        name: "",
+        type: "",
+        histories: ""
       }
     } else {
       return {
-        name: dragon.name,
-        type: dragon.type,
-        histories: dragon.histories
+        name: data.name,
+        type: data.type,
+        histories: data.histories
       }
     }
   });
@@ -38,7 +39,7 @@ function Form(creating, dragon) {
         .required("O preencimento da história é obrigatória."),
     }),
     onSubmit: values => {
-      if (creating) {
+      if (data === {}) {
         const registerData = {
           name: values.name,
           type: values.type,
@@ -49,7 +50,7 @@ function Form(creating, dragon) {
 
       } else {
         const registerData = {
-          id: dragon.id,
+          id: data.id,
           name: values.name,
           type: values.type,
           histories: values.histories
@@ -67,7 +68,7 @@ function Form(creating, dragon) {
         <table className="table-create">
           <thead>
             <tr>
-              {creating ? <th colSpan="2"><h2 className="subtitle" >Crie um dragão!</h2></th>:<th colSpan="2"><h2 className="subtitle" >Editar um dragão!</h2></th>}
+              {data === null ? <th colSpan="2"><h2 className="subtitle" >Crie um dragão!</h2></th>:<th colSpan="2"><h2 className="subtitle" >Editar um dragão!</h2></th>}
             </tr>
           </thead>
           <tbody>
