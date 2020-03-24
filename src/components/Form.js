@@ -1,27 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DragonService from "../api/DragonService";
 import { useFormik } from "formik";
 import * as yup from 'yup';
 import { navigate } from '@reach/router';
 
-
 function Form(data) {
-  console.log("Form: " + JSON.stringify(data));
-  console.log("Nome:   " + data.name);
-  const initialValues = (() => {
-    if (data === {}) {
-      return {
-        name: "",
-        type: "",
-        histories: ""
-      }
-    } else {
-      return {
-        name: data.name,
-        type: data.type,
-        histories: data.histories
-      }
+  const id = data.id;
+  const [dragon, setDragon] = useState({
+    name: "",
+    type: "",
+    histories: "",
+  });
+
+  console.log("Id:   " + id);
+
+  const initialValues = (async () => {
+    if (id === null) {
+      return dragon;
     }
+
+    await DragonService.getById(id)
+      .then((data) => { return data; })
+      .then((dataDragon) => { setDragon(dataDragon) });
+
+    console.log("Form: " + JSON.stringify(dragon));
+    console.log("Nome:   " + dragon.name);
+    return dragon;
   });
 
   const { getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
@@ -39,7 +43,7 @@ function Form(data) {
         .required("O preencimento da história é obrigatória."),
     }),
     onSubmit: values => {
-      if (data === {}) {
+      if (id === null) {
         const registerData = {
           name: values.name,
           type: values.type,
@@ -50,7 +54,7 @@ function Form(data) {
 
       } else {
         const registerData = {
-          id: data.id,
+          id: id,
           name: values.name,
           type: values.type,
           histories: values.histories
@@ -68,14 +72,14 @@ function Form(data) {
         <table className="table-create">
           <thead>
             <tr>
-              {data === null ? <th colSpan="2"><h2 className="subtitle" >Crie um dragão!</h2></th>:<th colSpan="2"><h2 className="subtitle" >Editar um dragão!</h2></th>}
+              {id === null ? <th colSpan="2"><h2 className="subtitle" >Crie um dragão!</h2></th> : <th colSpan="2"><h2 className="subtitle" >Editar um dragão!</h2></th>}
             </tr>
           </thead>
           <tbody>
             <tr>
               <th><label htmlFor="name">Nome</label></th>
               <th>
-                <input id="name" type="text" autocomplite="off" {...getFieldProps("name")} />
+                <input id="name" type="text" value={dragon.name} autocomplite="off" {...getFieldProps("name")} />
                 {touched.name && errors.name ? (
                   <small>{errors.name}</small>
                 ) : null}
