@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import DragonService from "../api/DragonService";
 import { useFormik } from "formik";
 import * as yup from 'yup';
 import { navigate } from '@reach/router';
 
-export default function Form({ id }) {
-  const { setFieldValue, getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
-    initialValues: {
-      name: "",
-      type: "",
-      histories: "",
-    },
+export default function Form({ data }) {
+  const initialValues = {
+    name: '',
+    type: '',
+    histories: '',
+    ...data,
+  };
+
+  const { getFieldProps, touched, errors, isValid, handleSubmit } = useFormik({
+    initialValues,
+    enableReinitialize: true,
     validationSchema: yup.object({
       name: yup
         .string()
@@ -25,10 +29,10 @@ export default function Form({ id }) {
     }),
     onSubmit: async ({ name, type, histories }) => {
       try {
-        const registerData = { name, type, histories};
+        const registerData = { name, type, histories };
 
-        if (id) {
-          registerData.id = id;
+        if (initialValues.id) {
+          registerData.id = initialValues.id;
           await DragonService.update(registerData);
         } else {
           await DragonService.create(registerData);
@@ -43,24 +47,13 @@ export default function Form({ id }) {
     }
   });
 
-  useEffect(() => {
-    (async () => {
-      if (id) {
-        const response = await DragonService.getById(id);
-        setFieldValue('name', response.name);
-        setFieldValue('type', response.type);
-        setFieldValue('histories', response.histories);
-      }
-    })();
-  }, [id, setFieldValue]);
-
   return (
     <form onSubmit={handleSubmit}>
       <table className="table-create">
         <thead>
           <tr>
             <th colSpan="2">
-              <h2 className="subtitle">{id ? "Editar" : "Crie"} um dragão!</h2>
+              <h2 className="subtitle">{data ? "Editar" : "Crie"} um dragão!</h2>
             </th>
           </tr>
         </thead>
