@@ -4,6 +4,7 @@ import { navigate } from '@reach/router';
 import "./list.css";
 import IconDelete from "../../../_assets/icons/delete.svg";
 import IconUpdate from "../../../_assets/icons/update.svg";
+import IconViewMore from "../../../_assets/icons/view-more.png";
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
@@ -19,6 +20,13 @@ function List() {
   const handleUpdate= useCallback(
     evt => {
       navigate("/update/" + evt.target.id);
+    },
+    [],
+  )
+
+  const handleViewMore= useCallback(
+    evt => {
+      navigate("/view-more/" + evt.target.id);
     },
     [],
   )
@@ -68,6 +76,7 @@ function List() {
               <td>
                 <img id={dragon.id} src={IconDelete} alt="Deletar" onClick={handleDelete} />
                 <img id={dragon.id} src={IconUpdate} alt="Editar" onClick={handleUpdate} />
+                <img id={dragon.id} src={IconViewMore} alt="Editar" onClick={handleViewMore} />
               </td>
             </tr>)
           })}

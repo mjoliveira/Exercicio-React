@@ -5,6 +5,7 @@ import List from "../containers/dragon/list";
 import Login from "../containers/user/login";
 import Create from "../containers/dragon/create"
 import Update from "../containers/dragon/update";
+import VierMore from "../containers/dragon/viewMore";
 
 export default function () {
     return <Router>
@@ -13,5 +14,6 @@ export default function () {
         <Login path="/login" />
         <NotFound default="/erro-404" />
         <Update path="/update/:id"/>
+        <VierMore path="/view-more/:id" />
     </Router>
 }
