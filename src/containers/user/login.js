@@ -1,17 +1,31 @@
-import React, { useCallback } from 'react';
-import { navigate } from '@reach/router';
+import React from 'react';
 import "./login.css";
 import "../../_assets/css/layout.css";
+import { LoginService } from '../../services/LoginServece'
 
 function Login() {
-  const handleLogin = useCallback(
-    evt => {
-      navigate("/");
-    },
-    [],
-  )
+
+  const handleSubmit = (e) => {
+    try {
+      const user = {
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value
+      };
+      const correct = LoginService(user);
+
+      if (correct) {
+        window.location = "/"
+      }
+
+      e.preventDefault();
+
+    } catch (err) {
+      console.log('Failed:', err);
+    }
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <table className="table-login">
         <thead>
           <tr>
@@ -20,8 +34,8 @@ function Login() {
         </thead>
         <tbody>
           <tr>
-            <th><label className="lable-login" htmlFor="user">Usuário</label></th>
-            <th><input id="user" type="text" autocomplite="off" /></th>
+            <th><label className="lable-login" htmlFor="username">Usuário</label></th>
+            <th><input id="username" type="text" autocomplite="off" /></th>
           </tr>
           <tr>
             <th><label className="lable-login" htmlFor="password">Senha</label></th>
@@ -29,7 +43,7 @@ function Login() {
           </tr>
           <tr>
             <th colSpan="2">
-              <button className="btn btn-login" type="button" onClick={handleLogin}>Entrar</button>
+              <button className="btn btn-login" type="submit">Entrar</button>
             </th>
           </tr>
         </tbody>
