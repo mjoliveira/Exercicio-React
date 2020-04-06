@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import DragonService from '../../../api/DragonService';
 import { navigate } from '@reach/router';
-import "./list.css";
 import IconDelete from "../../../_assets/icons/delete.svg";
 import IconUpdate from "../../../_assets/icons/update.svg";
 import IconViewMore from "../../../_assets/icons/view-more.png";
+import "../../../_assets/scss/index.scss";
+
 //import DragonListTable from "../../../components/DragonListTable";
 
 function List() {
@@ -74,9 +75,9 @@ function List() {
               <td className="center">{dragon.type}</td>
               <td>{dragon.histories}</td>
               <td>
-                <img id={dragon.id} src={IconDelete} alt="Deletar" onClick={handleDelete} />
-                <img id={dragon.id} src={IconUpdate} alt="Editar" onClick={handleUpdate} />
-                <img id={dragon.id} src={IconViewMore} alt="Editar" onClick={handleViewMore} />
+                <img className="option-btn" id={dragon.id} src={IconDelete} alt="Deletar" onClick={handleDelete} />
+                <img className="option-btn" id={dragon.id} src={IconUpdate} alt="Editar" onClick={handleUpdate} />
+                <img className="option-btn" id={dragon.id} src={IconViewMore} alt="Editar" onClick={handleViewMore} />
               </td>
             </tr>)
           })}
