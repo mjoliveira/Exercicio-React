@@ -4,7 +4,7 @@ import { navigate } from '@reach/router';
 import IconDelete from "../../../_assets/icons/delete.svg";
 import IconUpdate from "../../../_assets/icons/update.svg";
 import IconViewMore from "../../../_assets/icons/view-more.png";
-import "../../../_assets/scss/index.scss";
+import "../../../_assets/css/index.scss";
 
 //import DragonListTable from "../../../components/DragonListTable";
 

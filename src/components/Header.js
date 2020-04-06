@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Link, navigate} from '@reach/router';
 import { logout } from '../services/AuthenticationService';
-import '../_assets/css/components/header.scss'
+import '../_assets/css/index.scss';
 
 function Header() {
 
@@ -14,11 +14,11 @@ function Header() {
   );
 
   return (
-    <>
-      <Link to="/create">Criar dragão</Link>
-      <Link to="/">Lista de dragões</Link>
-      <button type="button" onClick={handleLogout}>Logout</button>
-    </>
+    <div className="header">
+      <Link className="menu-link" to="/create">Criar dragão</Link>
+      <Link className="menu-link" to="/">Lista de dragões</Link>
+      <button className="menu-btn" type="button" onClick={handleLogout}>Logout</button>
+    </div>
   )
 }
 

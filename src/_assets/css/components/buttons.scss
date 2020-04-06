@@ -1,0 +1,10 @@
+@use '../config/base.scss';
+@use '../config/variables';
+
+.option-btn:hover{
+  background-color: lighten($third-color, 20%);
+
+  &:active {
+    background-color: $third-color;
+  }
+}
