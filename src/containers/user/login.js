@@ -1,6 +1,5 @@
 import React from 'react';
 import { LoginService } from '../../services/LoginServece';
-import Header from '../../components/Header';
 //import "./login.scss";
 //import "../../_assets/scss/layout.scss";
 

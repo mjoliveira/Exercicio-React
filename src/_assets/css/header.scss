@@ -1,0 +1,34 @@
+@import './base.scss';
+@import './variables';
+
+.header{
+  background-color: $secondary-color;
+  padding: 10px;
+  width:100%;
+  height:100%;
+  margin: -8px;
+  display: flex;
+}
+
+.menu-link{
+  border: none;
+  text-decoration: none;
+  color: $primary-color;
+  padding: 0px 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+
+  &:hover{
+    color: lighten($third-color, 30%);
+  }
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  padding: 0px 30px 0px 10px;
+}
+

@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 import { Link, navigate} from '@reach/router';
 import { logout } from '../services/AuthenticationService';
-import '../_assets/css/index.scss';
+import Logo from "../_assets/icons/dragon-white.png";
+import '../_assets/css/header.scss';
 
 function Header() {
 
@@ -15,9 +16,10 @@ function Header() {
 
   return (
     <div className="header">
+      <img className="logo" src={Logo} alt="Dragon App"/>
       <Link className="menu-link" to="/create">Criar dragão</Link>
       <Link className="menu-link" to="/">Lista de dragões</Link>
-      <button className="menu-btn" type="button" onClick={handleLogout}>Logout</button>
+      <span className="menu-link" onClick={handleLogout}>Logout</span>
     </div>
   )
 }
