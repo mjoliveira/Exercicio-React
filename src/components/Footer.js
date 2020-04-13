@@ -1,10 +1,11 @@
 import React from 'react';
+import '../_assets/css/footer.scss';
 
 function Footer() {
 
   return (
     <>
-      <p>Footer</p>
+      <p className="footer">Dragon App</p>
     </>
   )
 }
