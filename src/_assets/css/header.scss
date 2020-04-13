@@ -3,10 +3,11 @@
 
 .header{
   background-color: $secondary-color;
-  padding: 10px;
-  width:100%;
+  padding: 10px 8px;
+  left: 0px;
+  right: 0px;
   height:100%;
-  margin: -8px;
+  margin-bottom: 10px;
   display: flex;
 }
 
@@ -15,11 +16,8 @@
   text-decoration: none;
   color: $primary-color;
   padding: 0px 10px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-self: center;
+  font-size: 23px;
 
   &:hover{
     color: lighten($third-color, 30%);
@@ -31,4 +29,3 @@
   height: 50px;
   padding: 0px 30px 0px 10px;
 }
-
